@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Abalone Age Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<!-- ===== NAVIGATION BAR ===== -->
+<nav class="navbar">
+
+    <div class="nav-logo">
+        🐚 Abalone AI
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/performance">Performance</a></li>
+         <li><a href="/testing">Testing</a></li>
+    </ul>
+
+</nav>
+
+<div class="about-section">
+<h1 style="color:black;">Abalone Age Prediction System</h1>
+
+    <p class="about-intro" style="font-size: large;">
+        The <b>Abalone Age Prediction System</b> is a Machine Learning application
+        designed to estimate the age of abalone using physical measurements.
+        Traditionally, age determination requires counting shell rings manually
+        a slow and destructive process. This AI-based solution provides a faster,
+        automated, and non-destructive alternative.
+    </p>
+
+    <!-- <div class="about-grid">
+
+        <div class="about-card">
+            <h3>🤖 Machine Learning Model</h3>
+            <p>
+                The system uses a supervised regression model trained on the
+                UCI Abalone Dataset. Physical attributes like length,
+                diameter, height, and weight are used to predict age accurately.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h3>📊 Dataset</h3>
+            <p>
+                Data is fetched directly from the <b>UCI Machine Learning Repository</b>
+                using Python APIs. The dataset contains biological measurements
+                of abalones collected for marine research analysis.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h3>🌐 Web Technology</h3>
+            <p>
+                The application is built using <b>Flask</b> for backend processing,
+                HTML & CSS for frontend design, and integrates Machine Learning
+                predictions in real-time.
+            </p>
+        </div>
+
+        <div class="about-card">
+            <h3>🎯 Project Objective</h3>
+            <p>
+                To demonstrate how Artificial Intelligence can replace manual
+                scientific methods, enabling faster marine ecosystem research
+                and data-driven biological analysis.
+            </p>
+        </div> -->
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <h1>🐚 Abalone Age Prediction System</h1>
+
+    <!-- ===== INPUT FORM ===== -->
+    <form action="/predict" method="post">
+
+        <select name="sex" required>
+            <option value="" disabled selected>Select Type</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="I">Infant</option>
+        </select>
+
+        <input type="text" name="length" placeholder="Length" required>
+        <input type="text" name="diameter" placeholder="Diameter" required>
+        <input type="text" name="height" placeholder="Height" required>
+        <input type="text" name="whole_weight" placeholder="Whole Weight" required>
+        <input type="text" name="shucked_weight" placeholder="Shucked Weight" required>
+        <input type="text" name="viscera_weight" placeholder="Viscera Weight" required>
+        <input type="text" name="shell_weight" placeholder="Shell Weight" required>
+
+        <button type="submit">Predict Age</button>
+
+    </form>
+
+    <!-- ===== PREDICTION RESULT ===== -->
+    {% if prediction_text %}
+        <h2 class="result">{{ prediction_text }}</h2>
+    {% endif %}
+
+    <!-- ===== BUTTON TO PERFORMANCE PAGE ===== -->
+   
+
+</div>
+
+
+</body>
+</html>

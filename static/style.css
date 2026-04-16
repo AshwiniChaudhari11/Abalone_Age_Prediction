@@ -1,0 +1,409 @@
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #1f4037, #99f2c8);
+    text-align: center;
+    color: white;
+}
+
+.container {
+    background: rgba(0,0,0,0.6);
+    padding: 30px;
+    margin: 40px auto;
+    width: 500px;
+    border-radius: 10px;
+}
+
+/* Inputs */
+input, select, button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: #00c853;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ===== PERFORMANCE SECTION (SIDE BY SIDE) ===== */
+
+/* ===============================
+   PERFORMANCE DASHBOARD STYLE
+================================= */
+
+.performance-container {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.perf-title {
+    margin-top: 30px;
+    font-size: 34px;
+    letter-spacing: 1px;
+}
+
+/* ===== METRICS GRID ===== */
+
+.metrics-grid {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.metric-card {
+    background: rgba(0,0,0,0.65);
+    padding: 25px;
+    border-radius: 15px;
+    width: 220px;
+    transition: 0.3s;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
+
+.metric-card:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+.metric-card h3 {
+    color: #99f2c8;
+    margin-bottom: 10px;
+}
+
+.metric-card p {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.metric-card span {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* ===== GRAPH CARD ===== */
+
+.graph-card {
+    background: rgba(0,0,0,0.65);
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 70%;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.3);
+}
+
+.graph-card img {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.graph-desc {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ===== BUTTON ===== */
+
+.back-btn {
+    background: #00c853;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #00e676;
+    transform: scale(1.05);
+}
+/* ===== ABOUT SECTION NEW DESIGN ===== */
+
+.about-section {
+    padding: 30px;
+    text-align: center;
+    color: white;
+}
+
+.about-section h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.about-intro {
+    max-width: 900px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+/* grid layout */
+.about-grid {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+/* cards */
+.about-card {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    background: rgba(0,0,0,0.75);
+}
+
+.about-card h3 {
+    margin-bottom: 10px;
+    color: #99f2c8;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3b3d44;
+    padding: 15px 40px;
+}
+
+.nav-logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* ===== ABOUT PAGE STYLING ===== */
+
+.about-container {
+    width: 85%;
+    margin: 40px auto;
+    color: white;
+}
+
+.about-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.about-section-box {
+    background: rgba(0,0,0,0.6);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.about-section-box:hover {
+    transform: translateY(-5px);
+    background: rgba(0,0,0,0.75);
+}
+
+.about-section-box h2 {
+    color: #99f2c8;
+    margin-bottom: 10px;
+}
+
+.about-section-box ul {
+    padding-left: 20px;
+}
+.about-section-box ul {
+    list-style: none;   /* removes dots */
+    padding-left: 0;    /* removes left spacing */
+}
+
+/* ===================== GLOBAL ===================== */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* ===================== MAIN CONTAINER ===================== */
+
+.performance-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 0 60px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ===================== METRICS GRID ===================== */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* ===================== METRIC CARD ===================== */
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-6px);
+}
+
+.metric-card h3 {
+    margin-bottom: 10px;
+    color: #90caf9;
+    font-weight: 500;
+}
+
+.metric-card p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* ===================== GRAPH CARD ===================== */
+
+.graph-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 35px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+.graph-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* ===================== CANVAS FIX ===================== */
+
+canvas {
+    display: block;
+    margin: auto;
+    width: 100% !important;
+    max-height: 420px;
+}
+
+/* Gauge smaller & centered */
+#gaugeChart {
+    max-width: 900px;
+    max-height: 300px !important;
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 900px) {
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .metric-card p {
+        font-size: 24px;
+    }
+
+    .graph-card {
+        padding: 20px;
+    }
+}
+
+/* ===== MULTIPLE GRAPHS LAYOUT ===== */
+.graphs-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.graph-card {
+   background: rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.graph-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.graph-desc {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #555;
+}
+
+.graph-card1 {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    margin-bottom: 10px;
+}
+.graph-card1 h2 {
+    color: #90caf9;   /* soft blue highlight */
+    margin-bottom: 10px;
+}
+
+.graph-desc1{
+     color: #90caf9;   /* soft blue highlight */
+    margin-bottom: 10px;
+}

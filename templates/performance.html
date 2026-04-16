@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Model Performance</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<!-- ===== NAVIGATION BAR ===== -->
+<nav class="navbar">
+
+    <div class="nav-logo">
+        🐚 Abalone AI
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/performance">Performance</a></li>
+         <li><a href="/testing">Testing</a></li>
+    </ul>
+
+</nav>
+<!-- ===== END NAVBAR ===== -->
+
+
+<!-- ===== PERFORMANCE CONTENT ===== -->
+<div class="performance-container">
+
+    <h1 class="perf-title">📊 Model Performance Dashboard</h1>
+
+    <!-- ===== METRICS CARDS ===== -->
+    <div class="metrics-grid">
+
+        <div class="metric-card">
+            <h3>MAE</h3>
+            <p>{{ mae }}</p>
+            <span>Mean Absolute Error</span>
+        </div>
+
+        <div class="metric-card">
+            <h3>MSE</h3>
+            <p>{{ mse }}</p>
+            <span>Mean Squared Error</span>
+        </div>
+
+        <div class="metric-card">
+            <h3>R² Score</h3>
+            <p>{{ r2 }}</p>
+            <span>Model Accuracy Indicator</span>
+        </div>
+
+    </div>
+
+    <!-- ===== GRAPH SECTION ===== -->
+<div class="graphs-container1">
+
+    <!-- Graph 1 -->
+    <div class="graph-card1">
+        <h2>📊 Actual vs Predicted</h2>
+        <img src="/static/actual_vs_predicted.png" alt="Actual vs Predicted">
+        <p class="graph-desc1">
+            This graph compares actual and predicted ages. Points near the diagonal line indicate accurate predictions.
+        </p>
+    </div>
+
+    <!-- Graph 2 -->
+    <div class="graph-card1">
+        <h2>📉 Error Distribution</h2>
+        <img src="/static/error_distribution.png" alt="Error Distribution">
+        <p class="graph-desc1">
+            This graph shows prediction errors. Values closer to zero indicate better model performance.
+        </p>
+    </div>
+
+    <!-- Graph 3 -->
+    <div class="graph-card1">
+        <h2>📊 Feature Importance</h2>
+        <img src="/static/feature_importance.png" alt="Feature Importance">
+        <p class="graph-desc1">
+            This graph shows which input features influence age prediction the most.
+        </p>
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>

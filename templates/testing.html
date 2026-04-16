@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Model Testing Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="performance-container">
+
+    <h1>🧪 Model Testing & Performance Analysis</h1>
+
+    <!-- ================= KPI METRICS ================= -->
+    <div class="metrics-grid">
+
+        <div class="metric-card">
+            <h3>Mean Absolute Error (MAE)</h3>
+            <p>{{ "%.4f"|format(mae) }}</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>Mean Squared Error (MSE)</h3>
+            <p>{{ "%.4f"|format(mse) }}</p>
+        </div>
+
+        <div class="metric-card">
+            <h3>R² Score</h3>
+            <p>{{ "%.4f"|format(r2) }}</p>
+        </div>
+
+    </div>
+
+    <!-- ================= ACCURACY GAUGE ================= -->
+    <div class="graph-card">
+        <h2>🎯 Model Accuracy</h2>
+        <canvas id="gaugeChart"></canvas>
+        <p class="graph-desc1">
+            Higher R² value (closer to 1) indicates better prediction accuracy.
+        </p>
+    </div>
+
+    <!-- ================= SCATTER GRAPH ================= -->
+    <div class="graph-card">
+        <h2>📊 Actual vs Predicted Comparison</h2>
+        <canvas id="scatterChart"></canvas>
+        <p class="graph-desc1">
+            Points close to the red line indicate accurate predictions.
+        </p>
+    </div>
+
+    <!-- ================= ERROR GRAPH ================= -->
+    <div class="graph-card">
+        <h2>📉 Prediction Error Distribution</h2>
+        <canvas id="errorChart"></canvas>
+        <p class="graph-desc1">
+            Green bars = low error (good), Red bars = high error (needs improvement).
+        </p>
+    </div>
+
+</div>
+
+<script>
+
+/* ================= DATA FROM BACKEND ================= */
+
+const actual = {{ actual | tojson }};
+const predicted = {{ predicted | tojson }};
+const errors = {{ errors | tojson }};
+const r2Score = {{ r2 }};
+
+
+/* ================= ACCURACY GAUGE ================= */
+
+new Chart(document.getElementById('gaugeChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Accuracy', 'Remaining'],
+        datasets: [{
+            data: [r2Score, 1 - r2Score],
+            backgroundColor: ['#4CAF50', '#444'],
+            borderWidth: 0
+        }]
+    },
+    options: {
+        cutout: '75%',
+        plugins: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'R² Score: ' + r2Score.toFixed(4),
+                color: 'white',
+                font: { size: 16 }
+            }
+        }
+    }
+});
+
+
+/* ================= SCATTER PLOT ================= */
+
+const scatterData = actual.map((value, index) => ({
+    x: value,
+    y: predicted[index]
+}));
+
+// Perfect prediction line
+const perfectLine = actual.map(value => ({
+    x: value,
+    y: value
+}));
+
+new Chart(document.getElementById('scatterChart'), {
+    type: 'scatter',
+    data: {
+        datasets: [
+            {
+                label: 'Predicted Values',
+                data: scatterData,
+                backgroundColor: '#4CAF50',
+                pointRadius: 5
+            },
+            {
+                label: 'Perfect Prediction (Ideal)',
+                data: perfectLine,
+                type: 'line',
+                borderColor: '#FF5252',
+                borderWidth: 2,
+                fill: false,
+                pointRadius: 0
+            }
+        ]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: { color: 'white' }
+            }
+        },
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Actual Age',
+                    color: 'white'
+                },
+                ticks: { color: 'white' }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Predicted Age',
+                    color: 'white'
+                },
+                ticks: { color: 'white' }
+            }
+        }
+    }
+});
+
+
+/* ================= ERROR GRAPH ================= */
+
+const labels = actual.map((_, i) => `Sample ${i + 1}`);
+
+// Color logic
+const errorColors = errors.map(e =>
+    Math.abs(e) < 1 ? '#4CAF50' : '#FF5252'
+);
+
+new Chart(document.getElementById('errorChart'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Prediction Error',
+            data: errors,
+            backgroundColor: errorColors,
+            borderRadius: 6
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+                labels: { color: 'white' }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Error Value',
+                    color: 'white'
+                },
+                ticks: { color: 'white' }
+            },
+            x: {
+                ticks: { color: 'white' }
+            }
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>
