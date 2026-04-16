@@ -5,6 +5,33 @@ An AI-powered web application that predicts the age of abalone using machine lea
 
 ---
 
+## 🚀 Features
+
+- 🔍 Predict abalone age based on physical measurements  
+- 📊 Model performance dashboard (MAE, MSE, R² Score)  
+- 📈 Interactive testing dashboard with visual graphs  
+- 🎯 Accuracy gauge visualization  
+- 📉 Error distribution analysis  
+- 🌐 User-friendly web interface using Flask  
+
+---
+
+## 🧠 Machine Learning Model
+
+- Algorithm: **Random Forest Regressor**
+- Dataset: **UCI Abalone Dataset**
+- Features Used:
+  - Sex
+  - Length
+  - Diameter
+  - Height
+  - Whole Weight
+  - Shucked Weight
+  - Viscera Weight
+  - Shell Weight
+
+---
+
 ## 📁 Project Structure
 
 ```
